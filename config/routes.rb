@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :application_forms
   resources :cages
   resources :shelters
@@ -15,4 +16,7 @@ Rails.application.routes.draw do
   get "/animals", to: "animals#index"
   get "/species", to: "species#index"
   get "/application_forms", to: "application_forms#index"
+  devise_scope :user do
+    get 'logout', to: 'devise/sessions#destroy', as: :logout
+  end
 end

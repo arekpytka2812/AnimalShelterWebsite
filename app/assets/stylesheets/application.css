@@ -30,6 +30,10 @@
     background-color: var(--color2);
  }
 
+ .myHeader {
+   height: 100px;
+ }
+
  .index,
  .new,
  .edit,
@@ -181,4 +185,6 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 10px;
     justify-content: center;
+    overflow-y: scroll;
+    height: calc(100% - 100px);
  }
