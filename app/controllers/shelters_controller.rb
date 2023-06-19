@@ -1,5 +1,6 @@
 class SheltersController < ApplicationController
   before_action :set_shelter, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /shelters or /shelters.json
   def index

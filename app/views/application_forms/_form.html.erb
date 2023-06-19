@@ -13,10 +13,12 @@
         </div>
       <% end %>
 
-      <div class="form-group">
-        <%= form.label :status, style: "display: block" %>
-        <%= form.text_field :status, placeholder: "Enter status" %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="form-group">
+          <%= form.label :status, style: "display: block" %>
+          <%= form.text_field :status, placeholder: "Enter status" %>
+        </div>
+      <% end %>
 
       <div class="form-group">
         <%= form.label :name, style: "display: block" %>

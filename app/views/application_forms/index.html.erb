@@ -4,17 +4,42 @@
   <h1>Application forms</h1>
 
   <div id="application_forms">
-    <% @application_forms.each do |application_form| %>
-      <div class="card">
-        <div class="card-body">
-          <%= render application_form %>
-        </div>
-        <div class="card-footer">
-          <%= button_tag "Show", class: "btn btn-primary my-action", onclick: "window.location.href='#{application_form_path(application_form)}'" %>
-        </div>
+    <% if !user_signed_in? %>
+      <div class="full-width-centered">
+        <%= form_tag application_forms_path, method: :get do %>
+          <%= text_field_tag :email, nil, placeholder: "Enter e-mail" %>
+          <%= submit_tag "Search" %>
+        <% end %>
       </div>
+
+      <% @application_forms.each do |application_form| %>
+        <% if application_form.email == params[:email] %>
+          <div class="card">
+            <div class="card-body">
+              <%= render application_form %>
+            </div>
+            <div class="card-footer">
+              <%= button_tag "Show", class: "btn btn-primary my-action", onclick: "window.location.href='#{application_form_path(application_form)}'" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <% @application_forms.each do |application_form| %>
+        <div class="card">
+          <div class="card-body">
+            <%= render application_form %>
+          </div>
+          <div class="card-footer">
+            <%= button_tag "Show", class: "btn btn-primary my-action", onclick: "window.location.href='#{application_form_path(application_form)}'" %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
+  
 
   <%= button_tag "New form", class: "btn btn-primary my-create-action", onclick: "window.location.href='#{new_application_form_path}'" %>
 </div>

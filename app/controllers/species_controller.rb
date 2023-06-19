@@ -1,5 +1,6 @@
 class SpeciesController < ApplicationController
   before_action :set_species, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /species or /species.json
   def index

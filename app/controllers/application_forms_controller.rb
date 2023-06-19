@@ -1,5 +1,7 @@
 class ApplicationFormsController < ApplicationController
+  before_action :set_default_status, only: %i[:new, :create]
   before_action :set_application_form, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show, :new, :create]
 
   # GET /application_forms or /application_forms.json
   def index
@@ -67,4 +69,12 @@ class ApplicationFormsController < ApplicationController
     def application_form_params
       params.require(:application_form).permit(:firstname, :lastname, :email, :phone, :status, :animal_id, :shelter_id)
     end
-end
+
+    def application_form_params_for_user
+      params.require(:application_form).permit(:firstname, :lastname, :email, :phone, :animal_id, :shelter_id)
+    end
+
+    def set_default_status
+      params[:status] ||= 'Pending'
+    end
+  end
