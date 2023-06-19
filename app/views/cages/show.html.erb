@@ -1,0 +1,18 @@
+<div class="show">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>View cage</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <%= render @cage %>
+    </div>
+    <div class="card-footer">
+      <%= button_tag "Edit", class: "btn btn-primary my-action", onclick: "window.location.href='#{edit_cage_path(@cage)}'" %>
+      
+      <%= button_to "Delete", @cage, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger my-action" %>
+    </div>
+  </div>
+
+  <%= button_tag "<<< Back to cages", class: "btn btn-primary my-back-action", onclick: "window.location.href='#{cages_path}'" %>
+</div>

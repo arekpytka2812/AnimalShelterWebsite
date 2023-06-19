@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: application_form) do |form| %>
+      <% if application_form.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(application_form.errors.count, "error") %> prohibited this application_form from being saved:</h2>
+
+          <ul>
+            <% application_form.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :status, style: "display: block" %>
+        <%= form.text_field :status, placeholder: "Enter status" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :name, style: "display: block" %>
+        <%= form.text_field :firstname, placeholder: "Enter first name" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :lastname, style: "display: block" %>
+        <%= form.text_field :lastname, placeholder: "Enter last name" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :phone, style: "display: block" %>
+        <%= form.text_field :phone, placeholder: "Enter phone number" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :email, style: "display: block" %>
+        <%= form.text_field :email, placeholder: "Enter e-mail" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :shelter_id, style: "display: block" %>
+        <%= form.text_field :shelter_id, placeholder: "Enter shelter ID" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :animal_id, style: "display: block" %>
+        <%= form.text_field :animal_id, placeholder: "Enter animal ID" %>
+      </div>
+
+      <div>
+        <%= form.submit "Submit", class:"btn btn-primary my-submit"  %>
+      </div>
+
+      <% if application_form.persisted? %>
+        <div class="cancel-edit">
+          <%= button_tag "Cancel editing", class: "btn btn-primary my-action", onclick: "window.location.href='#{application_forms_path(application_form)}'" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

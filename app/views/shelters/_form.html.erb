@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: shelter) do |form| %>
+      <% if shelter.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(shelter.errors.count, "error") %> prohibited this shelter from being saved:</h2>
+
+          <ul>
+            <% shelter.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :address, style: "display: block" %>
+        <%= form.text_field :address, placeholder:"Enter address" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_field :description, placeholder:"Enter description" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :cagesNumber, style: "display: block" %>
+        <%= form.number_field :cagesNumber, placeholder:"Enter number of cages" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :animalNumber, style: "display: block" %>
+        <%= form.number_field :animalNumber, placeholder: "Enter number of animals"%>
+      </div>
+
+      <div>
+        <%= form.submit "Submit", class:"btn btn-primary my-submit" %>
+      </div>
+
+      <% if shelter.persisted? %>
+        <div class="cancel-edit">
+          <%= button_tag "Cancel editing", class: "btn btn-primary my-action", onclick: "window.location.href='#{shelter_path(shelter)}'" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

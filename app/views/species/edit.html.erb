@@ -1,0 +1,7 @@
+<div class="edit">
+  <h1>Edit species</h1>
+
+  <%= render "form", species: @species %>
+
+  <%= button_tag "<<< Back to species", class: "btn btn-primary my-back-action", onclick: "window.location.href='#{species_index_path}'" %>
+</div>

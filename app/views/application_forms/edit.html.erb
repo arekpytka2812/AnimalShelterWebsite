@@ -1,0 +1,7 @@
+<div class="edit"> 
+  <h1>Editing application form</h1>
+
+  <%= render "form", application_form: @application_form %>
+
+  <%= button_tag "<<< Back to forms", class: "btn btn-primary my-back-action", onclick: "window.location.href='#{application_forms_path}'" %>
+</div>

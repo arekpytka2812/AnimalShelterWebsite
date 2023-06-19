@@ -1,0 +1,17 @@
+<div class="show">
+  <p style="color: green"><%= notice %></p>
+  <h1>View species</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <%= render @species %>
+    </div>
+    <div class="card-footer">
+      <%= button_tag "Edit", class: "btn btn-primary my-action", onclick: "window.location.href='#{edit_species_path(@species)}'" %>
+      
+      <%= button_to "Delete", @species, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger my-action" %>
+    </div>
+  </div>
+
+  <%= button_tag "<<< Back to species", class: "btn btn-primary my-back-action", onclick: "window.location.href='#{species_index_path}'" %>
+</div>

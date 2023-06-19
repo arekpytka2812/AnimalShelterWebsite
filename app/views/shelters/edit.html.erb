@@ -1,0 +1,7 @@
+<div class="edit">
+  <h1>Editing shelter</h1>
+
+  <%= render "form", shelter: @shelter %>
+
+  <%= button_tag "<<< Back to shelters", class: "btn btn-primary my-back-action", onclick: "window.location.href='#{shelters_path}'" %>
+</div>

@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: cage) do |form| %>
+      <% if cage.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(cage.errors.count, "error") %> prohibited this cage from being saved:</h2>
+
+          <ul>
+            <% cage.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :cageNumber, style: "display: block" %>
+        <%= form.number_field :cageNumber, placeholder:"Enter cage number" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :animal_id, style: "display: block" %>
+        <%= form.text_field :animal_id, placeholder:"Enter animal ID" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :shelter_id, style: "display: block" %>
+        <%= form.text_field :shelter_id, placeholder:"Enter shelter ID" %>
+      </div>
+
+      <div>
+        <%= form.submit "Submit", class:"btn btn-primary my-submit"  %>
+      </div>
+
+      <% if cage.persisted? %>
+        <div class="cancel-edit">
+          <%= button_tag "Cancel editing", class: "btn btn-primary my-action", onclick: "window.location.href='#{cages_path(cage)}'" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

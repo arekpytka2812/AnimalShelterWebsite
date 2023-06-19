@@ -1,0 +1,20 @@
+<div class="index">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Cages</h1>
+
+  <div id="cages">
+    <% @cages.each do |cage| %>
+      <div class="card">
+        <div class="card-body">
+          <%= render cage %>
+        </div>
+        <div class="card-footer">
+          <%= button_tag "Show", class: "btn btn-primary my-action", onclick: "window.location.href='#{cage_path(cage)}'" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= button_tag "New species", class: "btn btn-primary my-create-action", onclick: "window.location.href='#{new_cage_path}'" %>
+</div>

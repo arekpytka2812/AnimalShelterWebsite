@@ -1,0 +1,7 @@
+<div class="new">
+  <h1>New cage</h1>
+
+  <%= render "form", cage: @cage %>
+
+  <%= button_tag "<<< Back to cages", class: "btn btn-primary my-back-action", onclick: "window.location.href='#{cages_path}'" %>
+</div>

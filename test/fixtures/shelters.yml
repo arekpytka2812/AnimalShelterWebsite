@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  animalNumber: 1
+  cagesNumber: 1
+  description: MyString
+
+two:
+  address: MyString
+  animalNumber: 1
+  cagesNumber: 1
+  description: MyString

@@ -1,0 +1,184 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ :root {
+    --color1: #234e60;
+    --color2: #186271;
+    --color3: #1b878c;
+    --color4: #36b8ae;
+    --color5: #6ffad5;
+ }
+ 
+ body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color2);
+ }
+
+ .index,
+ .new,
+ .edit,
+ .show {
+    width: inherit;
+    height: inherit;
+    background-color: var(--color3);
+ }
+
+ .index h1,
+ .new h1,
+ .edit h1,
+ .show h1 {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+ }
+
+ .card {
+    min-width: 300px !important;
+    width: fit-content;
+    margin: auto;
+    border: 1px solid black !important;
+    border-radius: 10px !important;
+    background-color: var(--color4) !important;
+ }
+
+ .card .card-footer {
+    border-color: black;
+ }
+
+ .card-body .my-submit {
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    color: black;
+    border-color: var(--color5);
+    background-color: var(--color5);
+ }
+
+ .card-body .my-submit:hover {
+    color: white;
+    border-color: var(--color2);
+    background-color: var(--color2);
+ }
+
+ .card-body .my-submit:focus,
+ .card-body .my-submit:active {
+    color: white !important;
+    border-color: white !important;
+    background-color: var(--color2) !important;
+ }
+
+ .card-body .cancel-edit {
+    margin-top: 15px;
+ }
+
+ .card-body .cancel-edit .my-action {
+    justify-content: center;
+ }
+
+ .card-footer .my-action,
+ .card-body .cancel-edit .my-action {
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    color: black;
+    border-color: var(--color5);
+    background-color: var(--color5);
+ }
+
+ .card-footer .my-action:first-of-type {
+    margin-top: 8px;
+ }
+
+ .card-footer .my-action:last-of-type {
+    margin: 15px 0;
+ }
+
+ .card-footer .my-action:hover,
+ .card-body .cancel-edit .my-action:hover {
+    color: white;
+    border-color: var(--color2);
+    background-color: var(--color2);
+ }
+
+
+ .card-footer .my-action:focus,
+ .card-footer .my-action:active,
+ .card-body .cancel-edit .my-action:focus,
+ .card-body .cancel-edit .my-action:active {
+    color: white;
+    border-color: white;
+    background-color: var(--color2);
+ }
+
+
+ .my-back-action {
+    position: absolute;
+    top: 23px;
+    left: 20px;
+    color: black !important;
+    border: 1px solid var(--color4) !important;
+    border-radius: 10px !important;
+    background-color: var(--color4) !important;
+ }
+
+ .my-create-action {
+    position: absolute;
+    top: 23px;
+    right: 50px;
+    color: black !important;
+    border: 1px solid var(--color4) !important;
+    border-radius: 10px !important;
+    background-color: var(--color4) !important;
+ }
+
+ .my-delete-action {
+
+ }
+
+ .my-back-action:hover,
+ .my-create-action:hover,
+ .my-delete-action:hover {
+    color: white !important;
+    border-color: var(--color2) !important;
+    background-color: var(--color2) !important;
+ }
+
+ .my-back-action:focus,
+ .my-back-action:active,
+ .my-create-action:focus,
+ .my-create-action:active,
+ .my-delete-action:focus,
+ .my-delete-action:active {
+    color: white !important;
+    border-color: white !important;
+    background-color: var(--color2) !important;
+ }
+
+ #animals,
+ #application_forms,
+ #cages,
+ #employees,
+ #shelters,
+ #species {
+    margin: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    justify-content: center;
+ }
