@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
 
  :root {
     --color1: #234e60;
@@ -30,17 +31,80 @@
     background-color: var(--color2);
  }
 
- .myHeader {
-   height: 100px;
+ .my-header {
+   background-color: var(--color1);
+   height: 60px;
+   min-height: 60px;
+   display:flex;
+   flex-direction: row;
+ }
+
+ .my-header .menu,
+ .my-header .devise-container {
+   display:flex;
+   align-items: center;
+   flex: 1;
+ }
+
+ .my-header .devise-container {
+   justify-content: flex-end;
+   margin-right: 25px;
+ }
+
+
+ .my-header .menu .my-menu-action,
+ .my-header .devise-container .my-menu-action {
+   border-radius: 20px;
+   height: 40px;
+   width: 100px;
+   display: flex;
+   justify-content: center;
+   align-self: center;
+   margin-left:10px;
+   color: black;
+   border-color: var(--color4);
+   background-color: var(--color4);
+ }
+
+ .my-header .menu .my-menu-action:hover,
+ .my-header .devise-container .my-menu-action:hover {
+   color: white;
+   border-color: var(--color2);
+   background-color: var(--color2);
+ }
+
+ .my-header .menu .my-menu-action:focus,
+ .my-header .devise-container .my-menu-action:focus,
+ .my-header .menu .my-menu-action:active,
+ .my-header .devise-container .my-menu-action:active {
+   color: white;
+   border-color: white;
+   background-color: var(--color2);
+
+ }
+ .myHeader .menu{
+   display: flex;
+ }
+
+ .myHeader .devise-container {
+   display: flex;
  }
 
  .index,
  .new,
  .edit,
- .show {
+ .show,
+ #devise-register,
+ #devise-login  {
     width: inherit;
     height: inherit;
     background-color: var(--color3);
+ }
+
+ #devise-register,
+ #devise-login {
+   align-items: center;
+   display: flex;
  }
 
  .index h1,
@@ -53,12 +117,19 @@
  }
 
  .card {
+    display:flex;
+    align-self: center;
     min-width: 300px !important;
     width: fit-content;
     margin: auto;
     border: 1px solid black !important;
     border-radius: 10px !important;
     background-color: var(--color4) !important;
+ }
+
+ .card .card-head h2{
+   width: 100%;
+   text-align: center;
  }
 
  .card .card-footer {
@@ -133,22 +204,22 @@
 
  .my-back-action {
     position: absolute;
-    top: 23px;
+    top: 83px;
     left: 20px;
     color: black !important;
-    border: 1px solid var(--color4) !important;
+    border: 1px solid var(--color5) !important;
     border-radius: 10px !important;
-    background-color: var(--color4) !important;
+    background-color: var(--color5) !important;
  }
 
  .my-create-action {
     position: absolute;
-    top: 23px;
+    top: 83px;
     right: 50px;
     color: black !important;
-    border: 1px solid var(--color4) !important;
+    border: 1px solid var(--color5) !important;
     border-radius: 10px !important;
-    background-color: var(--color4) !important;
+    background-color: var(--color5) !important;
  }
 
  .my-delete-action {
@@ -183,8 +254,14 @@
     margin: 0 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 10px;
+    grid-gap: 50px 10px;
     justify-content: center;
     overflow-y: scroll;
-    height: calc(100% - 100px);
+    height: calc(100% - 144px);
+ }
+
+ .full-width-centered {
+   width: 100%;
+   display: flex;
+   justify-content: center;
  }

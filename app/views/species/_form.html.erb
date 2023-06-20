@@ -1,17 +1,18 @@
+<% if species.errors.any? %>
+  <div class="full-width-centered" style="color: red">
+    <h2><%= pluralize(species.errors.count, "error") %> prohibited this species from being saved:</h2>
+
+    <ul>
+      <% species.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="card">
   <div class="card-body">
       <%= form_with(model: species) do |form| %>
-      <% if species.errors.any? %>
-        <div style="color: red">
-          <h2><%= pluralize(species.errors.count, "error") %> prohibited this species from being saved:</h2>
-
-          <ul>
-            <% species.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      
 
       <div class="form-group">
         <%= form.label :name, style: "display: block" %>

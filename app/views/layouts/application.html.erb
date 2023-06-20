@@ -14,8 +14,26 @@
   </head>
 
   <body>
-    <div class="myHeader">
-      <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %>
+    <div class="my-header">
+      <div class="menu">
+        <%= button_tag "Forms", class: "btn btn-primary my-menu-action", onclick: "window.location.href='#{application_forms_path}'" %>
+        <%= button_tag "Shelter", class: "btn btn-primary my-menu-action", onclick: "window.location.href='#{shelters_path}'" %>
+        <%= button_tag "Animals", class: "btn btn-primary my-menu-action", onclick: "window.location.href='#{animals_path}'" %>
+        <%= button_tag "Species", class: "btn btn-primary my-menu-action", onclick: "window.location.href='#{species_index_path}'" %>
+        <% if user_signed_in? %>
+          <%= button_tag "Cages", class: "btn btn-primary my-menu-action", onclick: "window.location.href='#{cages_path}'" %>
+        <% end %>
+      </div>
+
+      <div class="devise-container">
+        <% if !user_signed_in? %>
+          <%= link_to 'Login', new_user_session_path, class:"btn btn-primary my-menu-action" %>
+          <%= link_to 'Register', new_user_registration_path, class:"btn btn-primary my-menu-action" %>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' }, class:"btn btn-primary my-menu-action" %>
+        <% end %>
+      </div>
     </div>
     <%= yield %>
   </body>
