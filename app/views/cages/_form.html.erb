@@ -1,18 +1,17 @@
+<% if cage.errors.any? %>
+  <div class="full-width-centered" style="color: red">
+    <h2><%= pluralize(cage.errors.count, "error") %> prohibited this cage from being saved:</h2>
+
+    <ul>
+      <% cage.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="card">
   <div class="card-body">
     <%= form_with(model: cage) do |form| %>
-      <% if cage.errors.any? %>
-        <div style="color: red">
-          <h2><%= pluralize(cage.errors.count, "error") %> prohibited this cage from being saved:</h2>
-
-          <ul>
-            <% cage.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
       <div class="form-group">
         <%= form.label :cageNumber, style: "display: block" %>
         <%= form.number_field :cageNumber, placeholder:"Enter cage number" %>

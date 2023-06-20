@@ -1,17 +1,19 @@
 <div class="index">
-  <p style="color: green"><%= notice %></p>
+  <!--<p style="color: green"><%= notice %></p>-->
 
   <h1>Application forms</h1>
 
+  <% if !user_signed_in? %>
+    <div class="full-width-centered">
+      <%= form_tag application_forms_path, method: :get do %>
+        <%= text_field_tag :email, nil, placeholder: "Enter e-mail" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+  <% end %>
+
   <div id="application_forms">
     <% if !user_signed_in? %>
-      <div class="full-width-centered">
-        <%= form_tag application_forms_path, method: :get do %>
-          <%= text_field_tag :email, nil, placeholder: "Enter e-mail" %>
-          <%= submit_tag "Search" %>
-        <% end %>
-      </div>
-
       <% @application_forms.each do |application_form| %>
         <% if application_form.email == params[:email] %>
           <div class="card">
